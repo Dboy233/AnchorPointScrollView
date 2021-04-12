@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ScrollViewPoint</string>
+    <string name="briefIntroduction">锚点定位滚动View，在滚动视图中，设置锚点View，可以滚动指定View位置，监听滚动变化和滚动位置。类似MarkDown的锚点定位功能。</string>
+    <string name="useExamples">
+        将<font color="#F44336">ScrollView</font>;替换为<font color="#F44336">ScrollViewPoint</font>;\n
+        使用<font color="#F44336">addScrollView</font>方法添加锚点定位的View;\n\n
+        注册锚点改变监听器<font color="#F44336">onViewPointChangeListener</font> 监听添加的锚点View的滚动变化和位置变化；\n\n
+    </string>
+    <string name="comment"><font color="#000">Dboy：</font> \n
+       \t 还不错吧。其实还有优化的空间。比如底部有三个标记的View高度都不是很高。这三个View永远不会滚动到顶部的定点触发位置，但是滚动到底部的时候，我想一次触发最后三个View的位置变化.这个后续有待优化吧。\n\n
+        <font color="#000">Other：</font> \n
+        \t 一些简单的业务还是能实现的。能用就行。要求不高！支持一下
+    </string>
+    <string name="other">这里就占个位置吧！</string>
+</resources>
