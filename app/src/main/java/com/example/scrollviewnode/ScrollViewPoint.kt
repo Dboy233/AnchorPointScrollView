@@ -73,7 +73,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
     /**
      * 是否显示debug 定点触发线
      */
-    var isShowDebugLine = false;
+    var isShowDebugLine = false
 
 
     init {
@@ -99,7 +99,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
         val lp = child.layoutParams as LayoutParams
         val childSize = child.height + lp.topMargin + lp.bottomMargin
         val parentSpace = height - paddingTop - paddingBottom
-        mMaxScrollY = Math.max(0, childSize - parentSpace)
+        mMaxScrollY = 0.coerceAtLeast(childSize - parentSpace)
         return mMaxScrollY
     }
 
@@ -109,7 +109,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
      */
     fun addScrollView(vararg views: View) {
         views.forEach {
-            var view = findViewById<View>(it.id)
+            val view = findViewById<View>(it.id)
             if (view == null) {
                 val missingId = rootView.resources.getResourceName(it.id)
                 throw NoSuchElementException("没有找到这个ViewId相关的VIew $missingId")
@@ -345,7 +345,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
         //前后两个View的差值
         var viewDistanceDifference = 0
         //根View的坐标值
-        var rootPos = getRootViewPos()
+        val rootPos = getRootViewPos()
         //计算最相邻两个View的Y坐标差值距离[viewDistanceDifference]
         if (previousView.view != null && nextView.view != null) {
             viewDistanceDifference = nextView.Y - previousView.Y
@@ -358,7 +358,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
                 //没有下一个View
                 //此时前一个View是最后一个注册的锚点view，
                 //距离 = 底部Y坐标 - 前一个ViewY坐标
-                var bottomY = rootPos.Y + getMaxScrollY() //最大滚动距离
+                val bottomY = rootPos.Y + getMaxScrollY() //最大滚动距离
                 viewDistanceDifference = bottomY - previousView.Y
             }
         }
@@ -461,7 +461,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
             index: Int,
             scrollPixel: Int,
             isScrollBottom: Boolean
-        );
+        )
 
         /**
          * 点位置改变，只改变时触发，不会一直触发
