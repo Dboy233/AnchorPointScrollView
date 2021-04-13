@@ -1,4 +1,4 @@
-package com.example.scrollviewnode
+package com.example.scrollview
 
 import android.content.Context
 import android.graphics.Canvas
@@ -15,7 +15,7 @@ import kotlin.math.min
  * @author DBoy 2021/2/1
  * <br/>    文件描述 :
  */
-class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
+class AnchorPointScrollView(context: Context, attrs: AttributeSet?) :
     @JvmOverloads NestedScrollView(context, attrs), NestedScrollView.OnScrollChangeListener {
 
     /**
@@ -149,7 +149,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
     /**
      * 移动到哪个VIew
      * [view] 需要滚动到的View
-     * 这个View必须是[ScrollViewPoint]的内部View
+     * 这个View必须是[AnchorPointScrollView]的内部View
      * [offset] 大于0，view与顶部接触前触发
      * [offset] 小于0，view与顶部接触之后触发
      * [offset]会和[mScrollOffset]累加
@@ -163,7 +163,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
     /**
      * 移动到哪个VIew
      * [viewId] 需要滚动到的View的Id
-     * 这个View必须是[ScrollViewPoint]的内部View
+     * 这个View必须是[AnchorPointScrollView]的内部View
      * [offset] 大于0，view与顶部接触前触发
      * [offset] 小于0，view与顶部接触之后触发
      * [offset]会和[mScrollOffset]累加
@@ -287,7 +287,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
         //当前滚动的View下标仅添加的View个数
         var scrollIndex = -1
         //通过遍历注册的View，找到当前与定点触发位置相邻的前后两个View和坐标位置
-        //[这个查找算法查看 [com.example.scrollviewnode.ExampleUnitTest]
+        //[这个查找算法查看 [com.example.scrollview.ExampleUnitTest]
         registerViews.forEachIndexed { index, it ->
             val viewPos = updateViewPos(it)
             if (mPos!!.Y >= viewPos.Y) {
@@ -473,7 +473,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
     }
 
     companion object {
-        const val TAG = "ScrollViewPoint"
+        const val TAG = "AnchorPointScrollView"
     }
 
 }

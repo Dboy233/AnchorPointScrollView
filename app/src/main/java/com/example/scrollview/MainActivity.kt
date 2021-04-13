@@ -1,4 +1,4 @@
-package com.example.scrollviewnode
+package com.example.scrollview
 
 import android.content.Context
 import android.graphics.Color
@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.example.scrollviewnode.databinding.ActivityMainBinding
-import com.example.scrollviewnode.databinding.ViewIndicatorTitleLayoutBinding
+import com.example.scrollview.databinding.ActivityMainBinding
+import com.example.scrollview.databinding.ViewIndicatorTitleLayoutBinding
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.CommonNavigator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.CommonNavigatorAdapter
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerIndicator
@@ -15,7 +15,7 @@ import net.lucode.hackware.magicindicator.buildins.commonnavigator.abs.IPagerTit
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.indicators.LinePagerIndicator
 import net.lucode.hackware.magicindicator.buildins.commonnavigator.titles.CommonPagerTitleView
 
-class MainActivity : AppCompatActivity(), ScrollViewPoint.OnViewPointChangeListener {
+class MainActivity : AppCompatActivity(), AnchorPointScrollView.OnViewPointChangeListener {
 
     val viewBinding: ActivityMainBinding by lazy {
         ActivityMainBinding.inflate(LayoutInflater.from(this))

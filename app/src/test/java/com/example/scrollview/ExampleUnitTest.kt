@@ -1,4 +1,4 @@
-package com.example.scrollviewnode
+package com.example.scrollview
 
 import org.junit.Test
 import kotlin.math.min

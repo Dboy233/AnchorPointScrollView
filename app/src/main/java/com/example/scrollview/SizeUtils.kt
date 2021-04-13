@@ -1,4 +1,4 @@
-package com.example.scrollviewnode
+package com.example.scrollview
 
 import android.content.res.Resources
 
