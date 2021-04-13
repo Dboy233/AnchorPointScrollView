@@ -17,30 +17,27 @@ class ExampleUnitTest {
         //寻找与tag最近的两个值
         val tag = 0L
         //tag左边值
-        var value1: Int = Int.MIN_VALUE
+        var leftVal: Int = Int.MIN_VALUE
         //tag右边值
-        var value2: Int = Int.MAX_VALUE
+        var rightVal: Int = Int.MAX_VALUE
+        //首先排序
+        list.sort()
 
         for (value in list) {
+            //当前值小于Tag
             if (tag >= value) {
-                if (tag - value == min(tag - value, tag - value1)) {
-                    value1 = value
+                if (tag - value == min(tag - value, tag - leftVal)) {
+                    leftVal = value
                 }
             } else {
-                if (value - tag == min(value - tag, value2 - tag)) {
-                    value2 = value
+                //当前值大于Tag
+                if (value - tag == min(value - tag, rightVal - tag)) {
+                    rightVal = value
                 }
             }
         }
-    }
 
-    @Test
-    fun 测试计算() {
-        var v1 = Int.MIN_VALUE
-        var v2 = 20L;
-        var v3 = v2 - v1;
-        print(v3)
+        println(" left=$leftVal tag=$tag  right=$rightVal")
     }
-
 
 }

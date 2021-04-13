@@ -287,6 +287,7 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
         //当前滚动的View下标仅添加的View个数
         var scrollIndex = -1
         //通过遍历注册的View，找到当前与定点触发位置相邻的前后两个View和坐标位置
+        //[这个查找算法查看 [com.example.scrollviewnode.ExampleUnitTest]
         registerViews.forEachIndexed { index, it ->
             val viewPos = updateViewPos(it)
             if (mPos!!.Y >= viewPos.Y) {
@@ -309,9 +310,9 @@ class ScrollViewPoint(context: Context, attrs: AttributeSet?) :
             }
         }
 //=========================前后View滚动差值
-        //距离上一个View需要滚动的距离
+        //距离上一个View需要滚动的距离/与上一个View之间的距离
         var previousViewDistance = 0
-        //距离下一个View需要滚动的距离
+        //距离下一个View需要滚动的距离/与下一个View之间的距离
         var nextViewDistance = 0
 
         if (previousView.view != null) {
