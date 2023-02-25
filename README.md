@@ -18,6 +18,9 @@
 
 ### 使用说明
 
+  拷贝文件：[AnchorPointScrollView.kt](https://github.com/Dboy233/AnchorPointScrollView/blob/master/app/src/main/java/com/example/scrollview/AnchorPointScrollView.kt)到你的项目中使用。
+
+
 ```kotlin
   
   //添加锚点View 这个View必须是ScrollViewPoint的子View；
